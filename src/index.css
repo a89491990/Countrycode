@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-base-light text-ink-light dark:bg-base-dark dark:text-ink-dark;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Thin, calm scrollbars for the number panels */
+textarea::-webkit-scrollbar,
+.output-panel::-webkit-scrollbar {
+  width: 8px;
+}
+textarea::-webkit-scrollbar-thumb,
+.output-panel::-webkit-scrollbar-thumb {
+  background-color: theme("colors.edge.dark");
+  border-radius: 999px;
+}
+
+/* Visible keyboard focus, kept subtle */
+:focus-visible {
+  outline: 2px solid theme("colors.signal.DEFAULT");
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
